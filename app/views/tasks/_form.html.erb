@@ -1,0 +1,20 @@
+<%= form_for @task do |f| %>
+<div>
+	<%= f.label :name %>
+	<%= f.text_field :name, id: :task_name %>
+</div>
+<div>
+	<%= f.label :priority %>
+	<%= f.text_field :priority, id: :task_priority %>
+</div>
+<div>
+	<%= f.label :due_date %>
+	<%= f.date_field :due_date, id: :task_due_date %>
+</div>
+<div>
+    <%= f.label :user_id %>
+    <%= f.collection_select(:user_id, User.all, :id, :email, {id: :task_user_id}) %>
+</div>
+
+<%= f.submit %>
+<% end %>
